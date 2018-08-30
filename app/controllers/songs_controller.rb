@@ -48,9 +48,6 @@ require 'csv'
   def upload
   CSV.foreach(params[:file].path, headers: true) do |song|
     @song = Song.create(title: song[0], artist_name: song[1])
-    binding.pry
-    @song.artist.find_or_create_by(name: );
-    @song.save
   end
   redirect_to songs_path
   end
