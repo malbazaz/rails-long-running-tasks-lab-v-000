@@ -46,7 +46,7 @@ require 'csv'
   end
 
   def upload
-  CSV.foreach(params[:songsd].path, headers: true) do |song|
+  CSV.foreach(params[:songs].path, headers: true) do |song|
     @song = Song.create(title: song[0])
     @song.artist.find_or_create_by(name: song[1]);
     @song.save
